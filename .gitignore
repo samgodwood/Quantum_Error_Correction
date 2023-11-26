@@ -161,3 +161,4 @@ cython_debug/
 Beyond basic 3 qubit code.ipynb
 threequbitcode.py
 Quantum Errors.ipynb
+relaxation3qubitcode.py
