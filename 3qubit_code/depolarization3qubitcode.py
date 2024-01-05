@@ -244,7 +244,7 @@ def rho_measure_rightmost_2_qubits(rho):
     Returns:
     str: The measurement outcome of the rightmost two qubits as a binary string.
     """
-    # Define projection operators for two qubits (assuming ket_0 and ket_1 are defined)
+    # Define projection operators for two qubits 
     P_00 = np.kron(ket_0, ket_0).dot(np.kron(ket_0, ket_0).T)
     P_01 = np.kron(ket_0, ket_1).dot(np.kron(ket_0, ket_1).T)
     P_10 = np.kron(ket_1, ket_0).dot(np.kron(ket_1, ket_0).T)

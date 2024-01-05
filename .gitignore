@@ -160,6 +160,10 @@ cython_debug/
 #.idea/
 3qubit_code/Beyond Basic 3 Qubit Code.ipynb
 3qubit_code/threequbitcode.py
+3qubit_code/full3qubitcode.py
+3qubit_code/Full 3 Qubit Code.ipynb
 Quantum Errors.ipynb
+
+
 
 
