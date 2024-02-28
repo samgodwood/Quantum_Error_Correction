@@ -162,6 +162,7 @@ cython_debug/
 3qubit_code/threequbitcode.py
 3qubit_code/full3qubitcode.py
 3qubit_code/Full 3 Qubit Code.ipynb
+Bosonic Modes/Kitten Code.ipynb
 Quantum Errors.ipynb
 
 
