@@ -12,6 +12,4 @@ This repository contains code and resources for simulating quantum error-correct
 
 - `Surface_Code/Surface Code Introduction.ipynb`: Utilizing qiskit, a Jupyter notebook containing an introduction to the Surface Code. Starting with the basic concepts of X and Z stabilizer measurements, and then introducing the 7-qubit error detection Surface Code (distance = 2).
 
-- `Surface_Code/Distance 3 Surface Code.ipynb`: Juypter notebook building upon the concepts introduced in the previous notebook by introducing the 17 qubit Surface code (distance = 3). 
-
 - `Bosonic_Modes/GKP code.ipynb`: A Jupyter notebook that provides a brief introduction to Gottesman-Kitaev-Preskill (GKP) codes and their application in quantum error correction. This notebook demonstrates how GKP codes can be used for error correction in bosonic modes.
