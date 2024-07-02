@@ -183,7 +183,7 @@ def depolarizing_error(rho, p, qubit=None, all=False):
 #--------------------------------------------------------------------------------------------------------------------------------------------
 
 #Define a CNOT function with depolarization error:
-def DE_fiveQCNOT(control, target, rho, depol_prob=0.01):
+def DE_fiveQCNOT(control, target, rho, depol_prob=0.005):
     cnot_gates = {
         (0, 1): CNOT_0_1,
         (1, 2): CNOT_1_2,
@@ -217,14 +217,14 @@ def state_to_density_matrix(state):
     return np.outer(state, np.conj(state))
 
 #--------------------------------------------------------------------------------------------------------------------------------------------
-def encode_logical_density_matrix(input_density_matrix, depol_prob=0.01):
+def encode_logical_density_matrix(input_density_matrix, depol_prob=0.005):
     initial_density = tensor_product(input_density_matrix, np.outer(ket_0, ket_0), np.outer(ket_0, ket_0))
     encoded = DE_fiveQCNOT(0, 1, initial_density, depol_prob)
     encoded = DE_fiveQCNOT(1, 2, encoded, depol_prob)
     return encoded
 
 #--------------------------------------------------------------------------------------------------------------------------------------------
-def rho_add_ancilla_qubits(error_density_matrix, depol_prob=0.01):
+def rho_add_ancilla_qubits(error_density_matrix, depol_prob=0.005):
     ancilla_density_matrix = tensor_product(error_density_matrix, ket_0 @ ket_0.T, ket_0 @ ket_0.T)
     ancilla_density_matrix = DE_fiveQCNOT(0, 3, ancilla_density_matrix, depol_prob)
     ancilla_density_matrix = DE_fiveQCNOT(1, 3, ancilla_density_matrix, depol_prob)
@@ -285,7 +285,7 @@ def rho_measure_rightmost_2_qubits(rho):
 
 #--------------------------------------------------------------------------------------------------------------------------------------------
 
-def rho_correct_density_matrix(rho, result, depol_prob=0.01):
+def rho_correct_density_matrix(rho, result, depol_prob=0.005):
     XII = tensor_product(X_gate, Identity, Identity, Identity, Identity)
     IXI = tensor_product(Identity, X_gate, Identity, Identity, Identity)
     IIX = tensor_product(Identity, Identity, X_gate, Identity, Identity)

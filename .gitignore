@@ -159,11 +159,10 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 3qubit_code/Beyond Basic 3 Qubit Code.ipynb
-3qubit_code/threequbitcode.py
 3qubit_code/full3qubitcode.py
 3qubit_code/Full 3 Qubit Code.ipynb
 Bosonic Modes/Kitten Code.ipynb
 Quantum Errors.ipynb
 Surface Code/Distance 3 Surface Code.ipynb
-
+3qubit_code/3 Qubit Code with Coherent Rotations.ipynb
 
