@@ -1,4 +1,3 @@
-import numpy as np
 # Math, numerics, and graphing
 import numpy as np
 import scipy as sp
@@ -11,6 +10,7 @@ from matplotlib import cm, colors
 from scipy.integrate import trapz
 from scipy.special import eval_hermite
 from scipy.optimize import minimize_scalar
+import strawberryfields as sf
 
 def fock_to_position(n, q):
     '''Returns the Fock position wavefunctions defined over q space.
@@ -108,3 +108,40 @@ def qunaught_fock(eps, q, n_max=100, norm=True, aspect_ratio=1):
         print("Warning: Normalization constant is zero, skipping normalization.")
         
     return qunaught, coeffs
+
+def agn_sample(variance):
+    """
+    Samples a single displacement from an Additive Gaussian Noise (AGN) channel.
+    """
+    if variance < 0:
+        raise ValueError("Variance must be non-negative.")
+    
+    # Generate a single Gaussian sample with mean = 0 and variance = sigma^2
+    sample = np.random.normal(loc=0.0, scale=np.sqrt(variance))
+    return sample
+
+# Define the modular reduction function using sf.math
+def reduce_modulo(value, modulus=np.sqrt(2 * np.pi)):
+    """
+    Reduce the input value modulo the specified modulus.
+    """
+    nearest_multiple = sf.math.floor(value / modulus + 0.5)  # Closest integer to value/modulus
+    reduced_value = value - nearest_multiple * modulus
+    return reduced_value
+
+def decode_q(measurement, modulus=np.sqrt(2 * np.pi)):
+    """
+    Compute the redisplacement value for the position quadrature.
+    """
+    reduced_value = reduce_modulo(measurement, modulus) 
+    z1 = 0 ##How to obtain Z1?
+    redisplacement = -0.5 * (reduced_value + z1)
+    return redisplacement
+
+def decode_p(measurement, modulus=np.sqrt(2 * np.pi)):
+    """
+    Compute the redisplacement value for the momentum quadrature.
+    """
+    reduced_value = reduce_modulo(measurement, modulus)
+    redisplacement = reduced_value
+    return redisplacement
